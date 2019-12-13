@@ -1,7 +1,5 @@
 
-//*****************************//
-/********** Read Me **********/
-//*****************************//
+**Read Me:**
 
 This is the most up to date version of this project. It is in an SPA (single page application) format.
 
