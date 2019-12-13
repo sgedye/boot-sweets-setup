@@ -76,20 +76,20 @@ body {
   background: var(--mainBlack);
   color: var(--mainPink);
 }
-/* endo of banner */
+/* end of banner */
 /* cart  */
 .cart {
   position: absolute;
   min-height: 10rem;
   background: var(--mainWhite);
   top: 0;
-  right: 0;
+  /*right: 0;*/
   transition: all .3s ease-in-out;
-  width: 0;
+  /*width: 0;*/
   overflow: hidden;
 }
 .show-cart {
-  width: 18rem;
+  /*width: 18rem;*/
   padding: 2rem 1.5rem;
   /*transform: rotateY(-360deg);*/
 }
@@ -239,7 +239,9 @@ body {
   transform: translateX(60%);
 }
 
+/********************************/
 /* Style Updated By Shaun Gedye */
+/********************************/
 
 section > .container { padding-top: 50px; }
 /* Nav */
@@ -262,10 +264,32 @@ nav.sticky {
 #cart {
   position: fixed;
   top: 76px;
+  bottom: 0px;
   background: rgba(255, 255, 255, 0.95);
   z-index: 99;
+  right: -18rem;
+  width: 18rem;
+  overflow: scroll; /* this doesn't work... I think because it is position: fixed */
 }
-#cart-item:nth-of-type(2) { background-color: burlywood; }
+.show-cart {
+  transform: translateX(-18rem);
+}
+.pink-cart-btn {
+  -webkit-animation: makePink 4s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: makePink 4s; /* Firefox < 16 */
+  -ms-animation: makePink 4s; /* Internet Explorer */
+  -o-animation: makePink 4s; /* Opera < 12.1 */
+  animation: makePink 4s;
+}
+@keyframes makePink {
+  0% { background-color: none; }
+  25% { background-color: var(--mainPink); }
+  50% { background-color: var(--mainPink); }
+  100% { background-color: none; }
+}
+.empty-cart {
+  display: none !important;
+}
 .item-quantity {
   font-size: 1.5em;
 }
@@ -299,14 +323,14 @@ nav.sticky {
   text-align: center;
   margin: 0;
 }
-.showConfirmation {
-  -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 4s; /* Firefox < 16 */
-  -ms-animation: fadein 4s; /* Internet Explorer */
-  -o-animation: fadein 4s; /* Opera < 12.1 */
-  animation: fadein 4s;
+.show-confirmation {
+  -webkit-animation: fade-in-out 4s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fade-in-out 4s; /* Firefox < 16 */
+  -ms-animation: fade-in-out 4s; /* Internet Explorer */
+  -o-animation: fade-in-out 4s; /* Opera < 12.1 */
+  animation: fade-in-out 4s;
 }
-@keyframes fadein {
+@keyframes fade-in-out {
   0% { opacity: 0; }
   25% { opacity: 1; }
   50% { opacity: 1; }
