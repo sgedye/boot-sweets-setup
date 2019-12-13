@@ -9,5 +9,5 @@ The JavaScript has been written by me.
 
 **TO DO:**
 
-	▪	Make the selectors work!
-	▪	Make the ‘check out’ button work!
+	▪  Make the selectors work!
+	▪  Make the 'check out' button work!
