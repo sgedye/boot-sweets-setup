@@ -1,6 +1,6 @@
 /****************************************/
 /* This file was written by John Smilga */
-/* Updated by Shaun Gedye from line 247 */
+/* Updated by Shaun Gedye from line 200 */
 /****************************************/
 
 @import url("https://fonts.googleapis.com/css?family=Kaushan+Script");
@@ -82,21 +82,17 @@ body {
   color: var(--mainPink);
 }
 /* end of banner */
-/* cart  */
+/* cart */
 .cart {
   position: absolute;
   min-height: 10rem;
   background: var(--mainWhite);
   top: 0;
-  /*right: 0;*/
   transition: all .3s ease-in-out;
-  /*width: 0;*/
   overflow: hidden;
 }
 .show-cart {
-  /*width: 18rem;*/
   padding: 2rem 1.5rem;
-  /*transform: rotateY(-360deg);*/
 }
 .cart-item {
   transition: all 2s ease-in-out;
@@ -152,7 +148,7 @@ body {
   top: 0;
   left: 0;
 }
-/*end of  about */
+/* end of about */
 /* store items */
 .store {
   background: var(--mainGrey);
@@ -160,7 +156,6 @@ body {
 .img-container {
   position: relative;
   overflow: hidden;
-  cursor: pointer;
 }
 .store-img {
   transition: all 1s ease-in-out;
@@ -188,50 +183,8 @@ body {
   color: --mainYellow;
 }
 /*end of  store items */
-.search-box {
-  background: var(--mainPink);
-  color: var(--mainBlack);
-}
-/* lightbox */
-.lightbox-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 999;
-  background: rgba(0, 0, 0, 0.6) !important;
-  display: none;
-}
 .show {
   display: block;
-}
-.lightbox-holder {
-  position: relative;
-}
-.lightbox-item {
-  min-height: 80vh;
-  background: url("../img/cake-1.jpeg") center/cover fixed no-repeat;
-  border-radius: 0.3rem;
-}
-.lightbox-close {
-  color: var(--mainPink);
-  font-size: 3rem;
-  transition: all 1s ease-in-out;
-  cursor: pointer;
-}
-.lightbox-close:hover {
-  color: var(--mainYellow);
-}
-.lightbox-control {
-  position: absolute;
-  font-size: 4rem;
-  color: var(--mainPink);
-  transition: all 1s linear;
-  cursor: pointer;
-}
-.lightbox-control:hover {
-  color: var(--mainYellow);
 }
 .btnLeft {
   top: 50%;
@@ -263,6 +216,7 @@ nav.sticky {
 
 /* Store */
 .hide { display: none !important; }
+.img-container>span { cursor: pointer; }
 
 /* Cart */
 #cart-info > p { display: none; }
@@ -294,6 +248,9 @@ nav.sticky {
   25% { background-color: var(--mainPink); }
   50% { background-color: var(--mainPink); }
   100% { background-color: none; }
+}
+.cart-item-remove:hover {
+  cursor: pointer;
 }
 .empty-cart {
   display: none !important;
