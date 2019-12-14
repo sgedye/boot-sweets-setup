@@ -1,9 +1,11 @@
-/**********************************************/
-/* This file is app.js written by Shaun Gedye */
-/**********************************************/
+/***********************************************/
+/* This file app.js was written by Shaun Gedye */
+/***********************************************/
 
 class UI {
   constructor() {
+    //filterStore()
+    this.store = document.getElementById('store-items');
     //showCart()
     this.cart = document.getElementById('cart');
     //addToCart() | selectCart()
@@ -13,6 +15,24 @@ class UI {
     this.total = document.querySelector('.cart-total-container');
     this.itemList = [];
     this.itemID = 2;
+  }
+  filterStore(selection) {
+    if (selection === "all") {
+      for (let i = 0; i<this.store.childElementCount; i++) {
+        this.store.children[i].classList.remove('hide');
+        this.store.children[i].classList.add('show');
+      }
+    } else {
+      for (let i = 0; i<this.store.childElementCount; i++) {
+        if (this.store.children[i].dataset.item === selection) {
+          this.store.children[i].classList.remove('hide');
+          this.store.children[i].classList.add('show');
+        } else {
+          this.store.children[i].classList.remove('show');
+          this.store.children[i].classList.add('hide'); 
+        }
+      }
+    }
   }
   showCart() {
     this.cart.classList.toggle('show-cart');
@@ -40,7 +60,7 @@ class UI {
       <span>$</span>
       <span id="cart-item-price" class="cart-item-price" class="mb-0">${item.price}</span>
     </div>
-    <a href="#" id='cart-item-remove' class="cart-item-remove">
+    <a id='cart-item-remove' class="cart-item-remove">
       <i class="fas fa-trash"></i>
     </a>
     `;
@@ -89,9 +109,8 @@ function showTotals() {
 }
 
 /* Event Listeners */
-
 function eventListeners() {
-  //const filterBtn = document.querySelectorAll('.filter-btn');
+  const filterBtn = document.querySelectorAll('.filter-btn');
   const cartItems = document.getElementById('cart');
   const cartInfo = document.getElementById('cart-info');
   const cartBtn = document.querySelectorAll('.store-item-icon');
@@ -99,17 +118,13 @@ function eventListeners() {
 
   const ui = new UI();
 
-/* 
+  /* Clicking on the store filter buttons */
   filterBtn.forEach((btn) => {
-    console.log("hi");
     btn.addEventListener('click', (event) => {
-    //  console.log(event.target.attr('data-filter'));
-    //  if (event.target.attr('data-filter') === 'cakes') {
-      //  console.log("cake");
-     // }
+      ui.filterStore(event.target.dataset.filter);
     });
   });
-*/
+  /* Clicking on the cart-info button to show/hide the cart */
   cartInfo.addEventListener('click', (event) => {
     if (event.target.classList.contains('cart-info') ||
     event.target.parentElement.classList.contains('cart-info') ||
@@ -117,18 +132,20 @@ function eventListeners() {
       ui.showCart();
     }
   });
+  /* Clicking on the shopping cart to add item to cart */
   cartBtn.forEach((btn) => {
     btn.addEventListener('click', (event) => {
       if (event.target.parentElement.classList.contains('store-item-icon') ||
       event.target.classList.contains('store-item-icon')) {
-        let cardElement = btn.parentElement.parentElement;
-        ui.addToCart(cardElement);
+        ui.addToCart(btn.parentElement.parentElement);
       }
     });    
   });
+  /* Clicking on the rubbish bin item in the cart to remove item */
   cartItems.addEventListener('click', (event) => {
     ui.removeFromCart(event.target.parentElement.parentElement);
   });
+  /* Clicking on the 'clear cart' button at the bottom of the cart */
   clearAll.addEventListener('click', () => {
     ui.removeAll();
   });
