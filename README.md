@@ -7,6 +7,8 @@ All images / media / web fonts were uploaded by John Smilga.
 The CSS and HTML was originally written by John Smilga, however it has been updated by me.
 The JavaScript has been written by me.
 
+The project can be viewed at: https://sgedye.github.io/grandmas-sweets
+
 **TO DO:**
 
 	▪  Make the selectors work!
