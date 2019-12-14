@@ -269,6 +269,7 @@ nav.sticky {
 @media (min-width: 768px) {
   #cart-info > p { display: block; }
 }
+.item-text { width: 88px; }
 #cart {
   position: fixed;
   top: 76px;
