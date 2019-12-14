@@ -1,3 +1,8 @@
+/****************************************/
+/* This file was written by John Smilga */
+/* Updated by Shaun Gedye from line 247 */
+/****************************************/
+
 @import url("https://fonts.googleapis.com/css?family=Kaushan+Script");
 
 :root {
@@ -99,12 +104,12 @@ body {
 /* end of cart */
 /* cart item */
 .cart-item-remove {
-  color: var(--mainPink);
+  color: var(--mainPink) !important;
   transition: all 1s ease-in-out;
 }
 .cart-item-remove:hover {
   transform: scale(1.1);
-  color: var(--mainBlack);
+  color: var(--mainBlack) !important;
 }
 #cart-item-price {
   font-size: 0.8rem;
@@ -256,6 +261,9 @@ nav.sticky {
 /* nav > .navbar-brand {} */
 #myNav > ul { margin-left: 10px !important; }
 
+/* Store */
+.hide { display: none !important; }
+
 /* Cart */
 #cart-info > p { display: none; }
 @media (min-width: 768px) {
@@ -269,7 +277,7 @@ nav.sticky {
   z-index: 99;
   right: -18rem;
   width: 18rem;
-  overflow: scroll; /* this doesn't work... I think because it is position: fixed */
+  overflow: scroll;
 }
 .show-cart {
   transform: translateX(-18rem);
@@ -305,14 +313,53 @@ nav.sticky {
 .max-height {
   min-height: 100vh;
 }
+/* Footer */
+#footer>div { 
+  padding: 5%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+  "copywrite"
+  "myLink";
+}
+#copywrite { 
+  grid-area: copywrite;
+  margin: auto;
+  align-items: center;
+  padding-bottom: 2%;
+}
+#copywrite>p {
+  margin: 0;
+  font-size: 2.2em; 
+  color: var(--mainPink);
+}
+#myLink { 
+  grid-area: myLink; 
+  margin: auto;
+  align-items: center;
+}
+#myLink>a { 
+  font-size: 1.6em; 
+}
+@media (min-width: 768px) {
+  #footer>div {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "copywrite myLink";
+  }
+  #copywrite { padding-bottom: 0; }
+}
+
 
 /* confirmation - added to cart */
 #confirmation {
   position: fixed;
-  z-index: 99;
   background-color: #ffffcc;
+  z-index: -10;
   opacity: 0;
-  bottom: 80px;
+  bottom: 125px;
   width: 80vw;
   height: auto;
   margin-left: 10vw;
@@ -331,8 +378,8 @@ nav.sticky {
   animation: fade-in-out 4s;
 }
 @keyframes fade-in-out {
-  0% { opacity: 0; }
-  25% { opacity: 1; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
+  0% { opacity: 0; z-index: -10; }
+  25% { opacity: 1; z-index: 100; }
+  50% { opacity: 1; z-index: 100; }
+  100% { opacity: 0; z-index: -10; }
 }
