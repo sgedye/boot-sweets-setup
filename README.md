@@ -11,5 +11,5 @@ The project can be viewed at: https://sgedye.github.io/grandmas-sweets
 
 **TO DO:**
 
-	▪  Add fade-in/fade-out to selectors work!
+	▪  Add fade-in/fade-out animation to selectors work!
 	▪  Make the 'check out' button work!
